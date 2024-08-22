@@ -56,12 +56,17 @@ if [[ -f "./installed" ]]; then
 else
     echo "Downloading files for application"
     curl -sSLo proot https://github.com/xXGAN2Xx/proot-nour/raw/main/proot >/dev/null 2>err.log
+    echo -ne '#                   (5%)\r'
     curl -sSLo root.tar.gz https://gitlab.com/openbsd98324/debian-rootfs/-/raw/main/content/1640716280-1-linux-rootfs-sid-bookworm-debootstrap-5.14.0-4-arm64-cln-nokern-2021.tar.gz?ref_type=heads&inline=false >/dev/null 2>err.log
+    echo -ne '##                  (10%)\r'
     export PATH="/bin:/usr/bin:/usr/local/bin:/sbin:$HOMEA/bin:$HOMEA/usr/bin:$HOMEA/sbin:$HOMEA/usr/sbin:$HOMEA/etc/init.d:$PATH"
+    echo -ne '######               (30%)\r'
     tar -xf root.tar.gz >/dev/null 2>err.log
+    echo -ne '##########           (50%)\r'
     chmod +x ./proot >/dev/null 2>err.log
+    echo -ne '###########          (55%)\r'
     rm -rf root.tar.gz >/dev/null 2>err.log
-
+    echo -ne '############         (60%)\r'
     cmds=("apt-get update" "apt-get -y upgrade" "apt-get -y install sudo curl wget hwloc htop nano neofetch python3" "curl -o /bin/systemctl https://raw.githubusercontent.com/gdraheim/docker-systemctl-replacement/master/files/docker/systemctl3.py")
 
     for cmd in "${cmds[@]}"; do
