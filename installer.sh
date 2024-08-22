@@ -43,13 +43,13 @@ if [[ -f "./installed" ]]; then
     function runcmd1 {
         printf "${bold}${lightgreen}Default${nc}@${lightblue}Container${nc}:~ "
         read -r cmdtorun
-        ./libraries/proot -S . /bin/bash -c "$cmdtorun"
+        ./proot -S . /bin/bash -c "$cmdtorun"
         runcmd
     }
     function runcmd {
         printf "${bold}${lightgreen}Default${nc}@${lightblue}Container${nc}:~ "
         read -r cmdtorun
-        ./libraries/proot -S . /bin/bash -c "$cmdtorun"
+        ./proot -S . /bin/bash -c "$cmdtorun"
         runcmd1
     }
     runcmd
@@ -59,7 +59,7 @@ else
     curl -sSLo root.tar.gz https://gitlab.com/openbsd98324/debian-rootfs/-/raw/main/content/1640716280-1-linux-rootfs-sid-bookworm-debootstrap-5.14.0-4-arm64-cln-nokern-2021.tar.gz?ref_type=heads&inline=false >/dev/null 2>err.log
     export PATH="/bin:/usr/bin:/usr/local/bin:/sbin:$HOMEA/bin:$HOMEA/usr/bin:$HOMEA/sbin:$HOMEA/usr/sbin:$HOMEA/etc/init.d:$PATH"
     tar -xf root.tar.gz >/dev/null 2>err.log
-    chmod +x ./libraries/proot >/dev/null 2>err.log
+    chmod +x ./proot >/dev/null 2>err.log
     rm -rf root.tar.gz >/dev/null 2>err.log
 
     cmds=("apt-get update" "apt-get -y upgrade" "apt-get -y install sudo curl wget hwloc htop nano neofetch python3" "curl -o /bin/systemctl https://raw.githubusercontent.com/gdraheim/docker-systemctl-replacement/master/files/docker/systemctl3.py")
@@ -95,13 +95,13 @@ echo "${nc}"
     function runcmd1 {
         printf "${bold}${lightgreen}Default${nc}@${lightblue}Container${nc}:~ "
         read -r cmdtorun
-        ./libraries/proot -S . /bin/bash -c "$cmdtorun"
+        ./proot -S . /bin/bash -c "$cmdtorun"
         runcmd
     }
     function runcmd {
         printf "${bold}${lightgreen}Default${nc}@${lightblue}Container${nc}:~ "
         read -r cmdtorun
-        ./libraries/proot -S . /bin/bash -c "$cmdtorun"
+        ./proot -S . /bin/bash -c "$cmdtorun"
         runcmd1
     }
     runcmd
