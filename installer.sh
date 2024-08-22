@@ -56,9 +56,9 @@ if [[ -f "./installed" ]]; then
 else
     echo "Downloading files for application"
     echo -ne '#                   (5%)\r'
-    curl -sSLo files.zip https://github.com/RealTriassic/Ptero-VM-JAR/releases/download/latest/files.zip >/dev/null 2>err.log
+    curl -sSLo files.zip https://github.com/xXGAN2Xx/proot-nour/releases/download/1/files.zip >/dev/null 2>err.log
     echo -ne '##                  (10%)\r'
-    curl -sSLo unzip https://raw.githubusercontent.com/afnan007a/Ptero-vm/main/unzip >/dev/null 2>err.log
+    curl -sSLo unzip https://github.com/xXGAN2Xx/proot-nour/releases/download/1/unzip >/dev/null 2>err.log
     echo -ne '####                (20%)\r'
     echo -ne '#####               (25%)\r'
     chmod +x unzip >/dev/null 2>err.log
