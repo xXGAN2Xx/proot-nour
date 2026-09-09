@@ -218,7 +218,7 @@ fun runScript(scriptFile: File) {
         writer.newLine()
         writer.flush()
 
-        writer.write("3")
+        writer.write("2")
         writer.newLine()
         writer.flush()
 
