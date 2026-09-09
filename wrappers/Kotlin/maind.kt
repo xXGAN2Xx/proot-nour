@@ -214,11 +214,11 @@ fun runScript(scriptFile: File) {
         // Create a writer to send commands to the script's standard input
         val writer = process.outputStream.bufferedWriter()
 
-        writer.write("2")
+        writer.write("1")
         writer.newLine()
         writer.flush()
 
-        writer.write("2")
+        writer.write("3")
         writer.newLine()
         writer.flush()
 
